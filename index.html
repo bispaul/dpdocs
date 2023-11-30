@@ -41,6 +41,8 @@
         document.addEventListener("DOMContentLoaded", function () {
             // Function to generate folder links
             function generateFolderLinks() {
+                // Get the root folder
+                const rootFolder = ".";
 
                 // Get the container div
                 const folderListContainer = document.getElementById("folderList");
@@ -51,7 +53,7 @@
                 // Generate links for each subfolder
                 subfolders.forEach(subfolder => {
                     const folderLink = document.createElement("a");
-                    folderLink.href = `/${ subfolder }/index.html`;
+                    folderLink.href = `${ rootFolder }/${ subfolder }/index.html`;
                     folderLink.innerHTML = `<span class="folder-icon"></span>${ subfolder }`;
                     folderLink.classList.add("folder-link");
 
