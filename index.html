@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inline CSS and Link to index.html</title>
+    <title>Folder Links</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,42 +13,60 @@
             margin: 20px;
         }
 
-        header {
-            text-align: center;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
+        .folder-icon::before {
+            content: '\1F4C1';
+            /* Unicode character for folder */
+            font-size: 20px;
+            margin-right: 5px;
         }
 
-        .content {
-            margin: 20px 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
+        .folder-link {
+            text-decoration: none;
+            color: #007bff;
+            margin-bottom: 10px;
+            display: block;
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>DBT DOCS</h1>
-    </header>
+    <h1>Folders:</h1>
 
-    <div class="content">
-      <a href="target/index.html">Doc1</a>
-      <a href="target2/index.html">Doc2</a>
-
+    <div id="folderList">
+        <!-- Folder links will be dynamically generated here -->
     </div>
 
-    <footer>
-        <p>&copy; 2023 My Website</p>
-    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to generate folder links
+            function generateFolderLinks() {
+                // Get the root folder
+                const rootFolder = "root";
 
+                // Get the container div
+                const folderListContainer = document.getElementById("folderList");
+
+                // Simulate a list of subfolders (you can replace this with actual data)
+                const subfolders = [ "mapbox", "safegraph", "sdna_us", "sdna_us_v2" ];
+
+                // Generate links for each subfolder
+                subfolders.forEach(subfolder => {
+                    const folderLink = document.createElement("a");
+                    folderLink.href = `${ rootFolder }/${ subfolder }/index.html`;
+                    folderLink.innerHTML = `<span class="folder-icon"></span>${ subfolder }`;
+                    folderLink.classList.add("folder-link");
+
+                    // Append the link to the container
+                    folderListContainer.appendChild(folderLink);
+                });
+            }
+
+            // Call the function to generate folder links
+            generateFolderLinks();
+        });
+    </script>
 
 </body>
-</html>
 
+</html>
