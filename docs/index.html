@@ -40,19 +40,19 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            # // Function to generate folder links
+            // Function to generate folder links
             function generateFolderLinks() {
-                # // Get the root folder
+                // Get the root folder
                 const rootFolder = ".";
 
-                # // Get the container div
+                // Get the container div
                 const folderListContainer = document.getElementById("folderList");
 
-                # // Simulate a list of subfolders (you can replace this with actual data)
-                const subfolders =  ["sdna_us_v2", "mapbox", "sdna_us", "safegraph"];
+                // Simulate a list of subfolders (you can replace this with actual data)
+                const subfolders =  ["sdna_us_v2", "index.html", "mapbox", "sdna_us", "safegraph"];
 
 
-                # // Generate links for each subfolder
+                // Generate links for each subfolder
                 subfolders.forEach(subfolder => {
                     const folderLink = document.createElement("a");
                     folderLink.href = `${ rootFolder }/${ subfolder }/index.html`;
@@ -64,7 +64,7 @@
                 });
             }
 
-            # // Call the function to generate folder links
+            // Call the function to generate folder links
             generateFolderLinks();
         });
     </script>
