@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+        }
+
+        .folder-icon::before {
+            content: '\1F4C1';
+            /* Unicode character for folder */
+            font-size: 20px;
+            margin-right: 5px;
+        }
+
+        .folder-link {
+            text-decoration: none;
+            color: #007bff;
+            margin-bottom: 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Folders:</h1>
+
+    <div id="folderList">
+        <!-- Folder links will be dynamically generated here -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to generate folder links
+            function generateFolderLinks() {
+                // Get the root folder
+                const rootFolder = ".";
+
+                // Get the container div
+                const folderListContainer = document.getElementById("folderList");
+
+                // Simulate a list of subfolders (you can replace this with actual data)
+                const subfolders =  ["sdna_us_v2", "sdna_us", "safegraph"];
+
+
+                // Generate links for each subfolder
+                subfolders.forEach(subfolder => {
+                    const folderLink = document.createElement("a");
+                    folderLink.href = `${ rootFolder }/${ subfolder }/index.html`;
+                    folderLink.innerHTML = `<span class="folder-icon"></span>${ subfolder }`;
+                    folderLink.classList.add("folder-link");
+
+                    // Append the link to the container
+                    folderListContainer.appendChild(folderLink);
+                });
+            }
+
+            // Call the function to generate folder links
+            generateFolderLinks();
+        });
+    </script>
+
+</body>
+
+</html>
